@@ -120,7 +120,8 @@ const app = express();
 const mongoose = require('mongoose');
 	
 app.use(express.urlencoded({ extended: true }));
-	
+app.use(express.json());
+
 mongoose.connect('mongodb://localhost:27017/basiccrud', { useNewUrlParser: true });
 mongoose.connection.once('open', () => {
   console.log('connected to mongo');
