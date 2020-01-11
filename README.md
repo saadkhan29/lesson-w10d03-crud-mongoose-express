@@ -283,6 +283,80 @@ app.put('/fruits/:id', (req, res)=>{
 
 <br>
 
+## Final Code App.js
+
+```javascript
+const express = require('express');
+const app = express();
+const mongoose = require('mongoose');
+const Fruit = require('./models/fruit');
+app.use(express.urlencoded({ extended: true }));
+	
+mongoose.connect('mongodb://localhost:27017/basiccrud', { useNewUrlParser: true });
+mongoose.connection.once('open', () => {
+  console.log('connected to mongo');
+});
+
+app.use(express.json());
+
+	
+//Create	
+app.post('/fruits', (req, res)=>{
+    console.log(req.body);
+    if(req.body.readyToEat === 'on'){ //if checked, req.body.readyToEat is set to 'on'
+        req.body.readyToEat = true;
+    } else { //if not checked, req.body.readyToEat is undefined
+        req.body.readyToEat = false;
+    }
+    Fruit.create(req.body, (error, createdFruit)=>{
+        console.log("in function");
+        console.log(createdFruit);
+        console.log(error);
+        res.json(createdFruit);
+    });
+});
+
+//Find
+app.get('/fruits', (req, res) => {
+    Fruit.find({}, (err, allFruits) => {
+      if (err) { console.log(err) }
+      res.json(allFruits);
+    });
+  });
+
+  // FindByID
+  app.get('/fruits/:id', (req, res)=>{
+    Fruit.findById(req.params.id, (err, foundFruit)=>{
+      if (err)  { res.send(err) }
+      res.json(foundFruit);
+    });
+  });
+
+  // Delete
+  app.delete('/fruits/:id', (req, res)=>{
+    Fruit.findByIdAndRemove(req.params.id, (err, deletedFruit)=>{
+       if (err)  { console.log(err) }
+      res.json(deletedFruit);
+    });
+  });
+
+// Update
+  app.put('/fruits/:id', (req, res)=>{
+    if(req.body.readyToEat === 'on'){
+        req.body.readyToEat = true;
+    } else {
+        req.body.readyToEat = false;
+    }
+    Fruit.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedModel)=>{
+        res.send(updatedModel);
+    });
+});
+	
+app.listen(3000, () => {
+  console.log('listening');
+});
+```
+
 ## Additional Resources
 
 - [Mongoose Docs](https://mongoosejs.com/)
