@@ -20,6 +20,7 @@
 ## Initialize a directory
 
 1. `mkdir express-mongoose-crud-app`
+1. `cd express-mongoose-crud-app`
 1. `npm init`
 1. `npm install express`
 1. `touch server.js`
