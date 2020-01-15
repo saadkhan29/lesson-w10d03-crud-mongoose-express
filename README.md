@@ -359,6 +359,18 @@ app.listen(3000, () => {
 });
 ```
 
+
+## LAB
+
+1. Enhance your schema and add price in it. <br>
+2. Seed your app with 10 more fruits.<br>
+3. Use create route to add 10 more fruits.<br>
+4. Read the list of fruits.<br>
+5. Update fruits using update route.<br>
+6. Delete fruits using delete route.<br>
+
+<hr>
+
 ## Additional Resources
 
 - [Mongoose Docs](https://mongoosejs.com/)
