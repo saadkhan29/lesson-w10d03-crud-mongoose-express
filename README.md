@@ -364,10 +364,10 @@ app.listen(3000, () => {
 
 1. Enhance your schema and add price in it. <br>
 2. Seed your app with 10 more fruits.<br>
-3. Use create route to add 10 more fruits.<br>
-4. Read the list of fruits.<br>
-5. Update fruits using update route.<br>
-6. Delete fruits using delete route.<br>
+3. Use create route API to add 10 more fruits.<br>
+4. Read the list of fruits using read route API.<br>
+5. Update fruits using update route API.<br>
+6. Delete fruits using delete route API.<br>
 
 <hr>
 
