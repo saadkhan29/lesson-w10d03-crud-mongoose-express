@@ -368,6 +368,8 @@ app.listen(3000, () => {
 4. Read the list of fruits using read route API.<br>
 5. Update fruits using update route API.<br>
 6. Delete fruits using delete route API.<br>
+7. Make a new folder with name routes. <br>
+8. Refactor routes within routes folder
 
 <hr>
 
